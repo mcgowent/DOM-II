@@ -37,7 +37,27 @@ intro.addEventListener('keydown', event => {
     event.target.style.color = 'white'
 })
 
-intro.addEventListener('resize', event => {
-    event.target.style.backgroundColor = 'black'
-    event.target.style.color = 'black'
+let btn = document.querySelector('.btn')
+
+btn.addEventListener('drag', event => {
+    event.target.style.display = 'none'
 })
+
+
+let box = document.querySelector('.destination')
+let button = document.querySelector('.btn')
+
+box.addEventListener('click', event => {
+    event.target.style.backgroundColor = "pink"
+})
+
+button.addEventListener('click', event => {
+    event.stopPropagation()
+    alert('This has been pressed')
+})
+
+let navLink = document.querySelectorAll('.nav-link')
+
+navLink.forEach(a => a.addEventListener('click', event => {
+    event.preventDefault()
+}))
